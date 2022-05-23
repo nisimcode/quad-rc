@@ -28,7 +28,7 @@ export default function App() {
 
   const getWord = () => {
     axios
-      .get("http://127.0.0.1:8000")
+      .get("https://wordwhile-d.herokuapp.com")
       .then(res => {
         setLt1(res.data.l1)
         setLt2(res.data.l2)
@@ -50,7 +50,7 @@ export default function App() {
 
       { !show &&
       <div style={{margin: '5%'}}>
-      <h1>War of Words</h1>
+      <h1>Wordwhile</h1>
       <h2>1. You have to find a 5 letter English word</h2>
       <h2>2. Type your guess and click 'GO'</h2>
       <h2>3. Letters that are in their correct places will get a green background</h2>
@@ -59,7 +59,7 @@ export default function App() {
       <h2>6. You have 6 attempts to get it correct</h2>
       <br/>
       <Button variant="outline-primary"
-              style={{marginBottom: '1%', width: '10%', fontSize: 20, textAlign: "center"}}
+              style={{marginBottom: '1%', width: '50%', fontSize: 20, textAlign: "center"}}
               onClick={() => setShow(true)}>
         START
       </Button>
