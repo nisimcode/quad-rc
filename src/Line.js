@@ -158,7 +158,7 @@ export default function Line (props) {
              }}
       />
       <Button variant="outline-success"
-              style={{marginLeft: 10, marginBottom: '1%', width: '10%', fontSize: 20, textAlign: "center"}}
+              style={{marginLeft: 10, marginBottom: '1%', width: '25%', fontSize: 20, textAlign: "center"}}
               onClick={() => checkLetters()}>
         GO
       </Button>

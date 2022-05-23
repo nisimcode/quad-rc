@@ -12,6 +12,7 @@ export default function App() {
   const [lt3, setLt3] = useState("")
   const [lt4, setLt4] = useState("")
   const [lt5, setLt5] = useState("")
+  const [word, setWord] = useState("")
   const [tries, setTries] = useState(1)
   const [win, setWin] = useState(false)
   const [dict, setDict] = useState({})
@@ -35,6 +36,7 @@ export default function App() {
         setLt3(res.data.l3)
         setLt4(res.data.l4)
         setLt5(res.data.l5)
+        setWord(res.data.word)
         setDict(res.data.dct)
       })
       .catch(err => window.alert(err))
@@ -59,7 +61,7 @@ export default function App() {
       <h2>6. You have 6 attempts to get it correct</h2>
       <br/>
       <Button variant="outline-primary"
-              style={{marginBottom: '1%', width: '50%', fontSize: 20, textAlign: "center"}}
+              style={{marginBottom: '1%', width: '25%', fontSize: 20, textAlign: "center"}}
               onClick={() => setShow(true)}>
         START
       </Button>
@@ -86,26 +88,25 @@ export default function App() {
        <Line checkWin={checkWin} lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={6} dict={dict} /> }
 
       { win &&
-        <div>
-        <p style={{color: 'blue', fontSize: 60, paddingTop: '1%'}}> YOU WIN!!!</p>
-        <Button variant="outline-primary"
-              style={{marginBottom: '1%', width: '10%', fontSize: 20, textAlign: "center"}}
-              onClick={() => setShow(true)}>
-        RESTART
-        </Button>
-        </div> }
+        <p style={{color: 'blue', fontSize: 60, paddingTop: '1%'}}> YOU WIN!!!</p> }
+
 
       { tries > 6 && !win &&
+        <p style={{color: 'red', fontSize: 60, paddingTop: '1%'}}> YOU LOSE!!!</p> }
+
+
+      { (win || (tries > 6 && !win)) &&
         <div>
-          <p style={{color: 'red', fontSize: 60, paddingTop: '1%'}}> YOU LOSE!!!</p> }
-          <Button variant="outline-primary"
-              style={{marginBottom: '1%', width: '10%', fontSize: 20, textAlign: "center"}}
-              onClick={() => setShow(true)}>
-          RESTART
-          </Button>
-        </div> }
+        <h1>The word was: {word} </h1>
+        <Button variant="outline-primary"
+            style={{marginBottom: '1%', width: '25%', fontSize: 20, textAlign: "center"}}
+            onClick={() => setShow(true)}>
+        RESTART
+        </Button>
+        </div>}
 
       </div> }
+
     </div>
   )
 }
