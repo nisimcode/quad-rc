@@ -29,7 +29,7 @@ export default function App() {
 
   const getWord = () => {
     axios
-      .get("https://wordwhile-d.herokuapp.com")
+      .get("https://wordwhile-d.herokuapp.com/")
       .then(res => {
         setLt1(res.data.l1)
         setLt2(res.data.l2)
