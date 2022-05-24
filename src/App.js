@@ -39,7 +39,7 @@ export default function App() {
         setWord(res.data.word)
         setDict(res.data.dct)
       })
-      .catch(err => console.error(err))
+      .catch(err => window.alert(err))
   }
 
   useEffect(() => {

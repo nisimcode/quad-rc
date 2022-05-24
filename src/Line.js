@@ -102,7 +102,6 @@ export default function Line (props) {
 
 
   const handleFocus = (e) => {
-    console.warn('inside Line-handlePlace')
     const {maxLength, value, name} = e.target;
     const [fieldName, fieldIndex] = name.split("-");
     let fieldIntIndex = parseInt(fieldIndex, 10);
