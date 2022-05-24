@@ -1,7 +1,6 @@
 import {useRef, useState} from "react";
 import Button from "react-bootstrap/Button";
 
-
 export default function Line (props) {
 
   const [pl1, setPl1] = useState("")
@@ -14,6 +13,7 @@ export default function Line (props) {
   const [cl3, setCl3] = useState("white")
   const [cl4, setCl4] = useState("white")
   const [cl5, setCl5] = useState("white")
+  const show = useRef(true)
   const greens = useRef(0)
 
   const checkLetters = () => {
@@ -89,6 +89,23 @@ export default function Line (props) {
       }
     }
 
+    if (pl5 === props.lt5) {
+      setCl5('lightgreen')
+    }
+    if (pl4 === props.lt4) {
+      setCl4('lightgreen')
+    }
+    if (pl3 === props.lt3) {
+      setCl3('lightgreen')
+    }
+    if (pl2 === props.lt2) {
+      setCl2('lightgreen')
+    }
+    if (pl1 === props.lt1) {
+      setCl5('lightgreen')
+    }
+
+      show.current = false
       checkResult()
     }
 
@@ -117,7 +134,6 @@ export default function Line (props) {
       }
     }
   }
-
 
   return (
     <div style={{ paddingTop: 25 }}>
@@ -156,11 +172,13 @@ export default function Line (props) {
                handleFocus(e)
              }}
       />
+
+      { show.current &&
       <Button variant="outline-success"
               style={{marginLeft: 10, marginBottom: '1%', width: '8%', fontSize: 20, textAlign: "center"}}
               onClick={() => checkLetters()}>
         GO
-      </Button>
+      </Button> }
     </div>
   )
 }
