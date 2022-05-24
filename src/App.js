@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+import {BACK_URL} from "./etc";
+
 
 export default function App() {
 
@@ -29,7 +31,7 @@ export default function App() {
 
   const getWord = () => {
     axios
-      .get('https://wordwhile-d.herokuapp.com')
+      .get(BACK_URL)
       .then(res => {
         setLt1(res.data.l1)
         setLt2(res.data.l2)
@@ -88,18 +90,18 @@ export default function App() {
        <Line checkWin={checkWin} lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={6} dict={dict} /> }
 
       { win &&
-        <p style={{color: 'blue', fontSize: 60, paddingTop: '1%'}}> YOU WIN!!!</p> }
+        <p style={{color: 'blue', fontSize: 30, paddingTop: '1%', display:"inline"}}> YOU WIN!!!</p> }
 
 
       { tries > 6 && !win &&
-        <p style={{color: 'red', fontSize: 60, paddingTop: '1%'}}> YOU LOSE!!!</p> }
+        <p style={{color: 'red', fontSize: 30, paddingTop: '1%', display:"inline"}}> YOU LOSE!!!</p> }
 
 
       { (win || (tries > 6 && !win)) &&
-        <div>
-        <h1>The word was: {word} </h1>
+        <div >
+        <p style={{fontSize: 30}}>The word was: {word} </p>
         <Button variant="outline-primary"
-            style={{marginBottom: '1%', width: '25%', fontSize: 20, textAlign: "center"}}
+            style={{marginBottom: '1%', width: '25%', fontSize: 20, textAlign: "center", display:"inline"}}
             onClick={() => setShow(true)}>
         RESTART
         </Button>
