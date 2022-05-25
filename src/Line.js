@@ -138,35 +138,35 @@ export default function Line (props) {
   return (
     <div style={{ paddingTop: 20 }}>
       <input name={`field-${props.pr}1`} maxLength="1" value={pl1} type="text"
-             style={{width: '8%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl1}}
+             style={{width: '12%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl1}}
              onChange={(e) => {
                setPl1(e.target.value);
                handleFocus(e)
              }}
       />
       <input name={`field-${props.pr}2`} maxLength="1" value={pl2} type="text"
-             style={{width: '8%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl2}}
+             style={{width: '12%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl2}}
              onChange={(e) => {
                setPl2(e.target.value);
                handleFocus(e)
              }}
       />
       <input name={`field-${props.pr}3`} maxLength="1" value={pl3} type="text"
-             style={{width: '8%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl3}}
+             style={{width: '12%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl3}}
              onChange={(e) => {
                setPl3(e.target.value);
                handleFocus(e)
              }}
       />
       <input name={`field-${props.pr}4`} maxLength="1" value={pl4} type="text"
-             style={{width: '8%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl4}}
+             style={{width: '12%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl4}}
              onChange={(e) => {
                setPl4(e.target.value);
                handleFocus(e)
              }}
       />
       <input name={`field-${props.pr}5`} maxLength="1" value={pl5} type="text"
-             style={{width: '8%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl5}}
+             style={{width: '12%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl5}}
              onChange={(e) => {
                setPl5(e.target.value);
                handleFocus(e)
