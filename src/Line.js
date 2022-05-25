@@ -136,7 +136,7 @@ export default function Line (props) {
   }
 
   return (
-    <div style={{ paddingTop: 25 }}>
+    <div style={{ paddingTop: 20 }}>
       <input name={`field-${props.pr}1`} maxLength="1" value={pl1} type="text"
              style={{width: '8%', fontSize: 30, textAlign: "center", margin: 2, backgroundColor: cl1}}
              onChange={(e) => {
@@ -176,9 +176,20 @@ export default function Line (props) {
       { show.current &&
       <Button variant="outline-success"
               style={{marginLeft: 10, marginBottom: '1%', width: '8%', fontSize: 20, textAlign: "center"}}
-              onClick={() => checkLetters()}>
+              onClick={() =>  {checkLetters()}}>
         GO
       </Button> }
+
+      { props.showDefinition !== undefined && show.current &&
+      <Button variant="outline-success"
+              style={{marginLeft: 10, marginBottom: '1%', width: '10%', fontSize: 12, textAlign: "center"}}
+              onClick={() => props.showDefinition(true)}>
+        Show Definition
+      </Button> }
+
+      { props.showDefinition === true &&
+      <p>{props.def}</p>}
+
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import Line from "./Line";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "axios";
 // import Button from "react-bootstrap/Button";
 import {BACK_URL} from "./etc";
 import Result from "./Result";
 import Header from "./Header";
+import Button from "react-bootstrap/Button";
 
 export default function Game() {
 
@@ -17,14 +18,32 @@ export default function Game() {
   const [tries, setTries] = useState(1)
   const [win, setWin] = useState(false)
   const [dict, setDict] = useState({})
+  const [def, setDef] = useState("")
+  const [showDef, setShowDef] = useState(false)
+  const bottom = useRef(null)
 
   const checkWin = (val) => {
     console.log(win)
     if (val === true) {
       setWin(true)
+      showDefinition(false)
     } else {
       setTries(tries + 1)
+      showDefinition(false)
     }
+  }
+
+  const showDefinition = (bool) => {
+    if (bool === true) {
+      setShowDef(true)
+    }
+    else {
+      setShowDef(false)
+    }
+  }
+
+  const scrollDown = () => {
+    bottom.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const getWord = () => {
@@ -38,13 +57,13 @@ export default function Game() {
         setLt5(res.data.l5)
         setWord(res.data.word)
         setDict(res.data.dct)
+        setDef(res.data.def)
       })
       .catch(err => window.alert(err))
   }
 
-  useEffect(() => {
-    getWord()
-  }, [])
+  useEffect(getWord, [])
+  useEffect(scrollDown)
 
   return (
     <>
@@ -52,48 +71,35 @@ export default function Game() {
 
       <div style={{textAlign: 'center'}}>
 
+
       { tries >= 1  &&
-      <Line checkWin={checkWin}
-            lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={1} dict={dict}/> }
+      <Line checkWin={checkWin} pr={1} dict={dict}
+            lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} /> }
 
       { tries >= 2 &&
-      <Line disabled={tries>2} checkWin={checkWin}
-            lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={2} dict={dict}/> }
+      <Line checkWin={checkWin} pr={2} dict={dict}
+            lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} /> }
 
       { tries >= 3 &&
-       <Line disabled={tries>3} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={3} dict={dict} /> }
+       <Line checkWin={checkWin} pr={3} dict={dict}
+             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} /> }
 
       { tries >= 4 &&
-       <Line disabled={tries>4} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={4} dict={dict} /> }
+       <Line checkWin={checkWin} pr={4} dict={dict}
+             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} /> }
 
       { tries >= 5 &&
-       <Line disabled={tries>5} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={5} dict={dict} /> }
+        <Line checkWin={checkWin} pr={5} dict={dict}
+             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} /> }
 
       { tries >= 6 &&
-       <Line disabled={tries>6} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={6} dict={dict} /> }
+        <>
+       <Line checkWin={checkWin} pr={6} dict={dict}
+             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} />
+        <p>{def}</p>
+       </> }
 
-      { tries >= 7 &&
-       <Line disabled={tries>7} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={7} dict={dict} /> }
-
-      { tries >= 8 &&
-       <Line disabled={tries>8} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={8} dict={dict} /> }
-
-      { tries >= 9 &&
-       <Line disabled={tries>9} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={9} dict={dict} /> }
-
-      { tries >= 10 &&
-       <Line disabled={tries>10} checkWin={checkWin}
-             lt1={lt1} lt2={lt2} lt3={lt3} lt4={lt4} lt5={lt5} pr={10} dict={dict} /> }
-
-       { (win || (tries > 10 && !win)) &&
-        <Result win={win} tries={tries} word={word}/> }
+        <Result win={win} tries={tries} word={word}/>
 
       </div>
     </>

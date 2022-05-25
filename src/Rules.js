@@ -16,7 +16,7 @@ export default function Rules () {
         <h3>3. Letters that are in their correct places will get a green background</h3>
         <h3>4. Letters that are in their incorrect places will get a yellow background</h3>
         <h3>5. Letters that are not in the word will remain with a white background </h3>
-        <h3>6. You have 10 attempts to get it correct</h3>
+        <h3>6. You have 6 attempts to get it correct</h3>
 
         <Button variant="outline-primary"
                 style={{marginBottom: '1%', marginTop: '5%', width: '25%', fontSize: 20, textAlign: "center"}}
