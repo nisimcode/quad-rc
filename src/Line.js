@@ -175,20 +175,10 @@ export default function Line (props) {
 
       { show.current &&
       <Button variant="outline-success"
-              style={{marginLeft: 10, marginBottom: '1%', width: '8%', fontSize: 20, textAlign: "center"}}
+              style={{marginLeft: 10, marginBottom: '1%', width: '16%', fontSize: 20, textAlign: "center"}}
               onClick={() =>  {checkLetters()}}>
         GO
       </Button> }
-
-      { props.showDefinition !== undefined && show.current &&
-      <Button variant="outline-success"
-              style={{marginLeft: 10, marginBottom: '1%', width: '10%', fontSize: 12, textAlign: "center"}}
-              onClick={() => props.showDefinition(true)}>
-        Show Definition
-      </Button> }
-
-      { props.showDefinition === true &&
-      <p>{props.def}</p>}
 
     </div>
   )
