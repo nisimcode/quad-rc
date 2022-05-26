@@ -1,7 +1,3 @@
-// import Button from "react-bootstrap/Button";
-// import {useNavigate} from 'react-router-dom';
-// import End from "./End";
-
 export default function Result (props) {
 
 

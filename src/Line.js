@@ -3,120 +3,110 @@ import Button from "react-bootstrap/Button";
 
 export default function Line (props) {
 
-  const [pl1, setPl1] = useState("")
-  const [pl2, setPl2] = useState("")
-  const [pl3, setPl3] = useState("")
-  const [pl4, setPl4] = useState("")
-  const [pl5, setPl5] = useState("")
-  const [cl1, setCl1] = useState("white")
-  const [cl2, setCl2] = useState("white")
-  const [cl3, setCl3] = useState("white")
-  const [cl4, setCl4] = useState("white")
-  const [cl5, setCl5] = useState("white")
-  const show = useRef(true)
-  const greens = useRef(0)
+  const [plc1, setPlc1] = useState("")
+  const [plc2, setPlc2] = useState("")
+  const [plc3, setPlc3] = useState("")
+  const [plc4, setPlc4] = useState("")
+  const [plc5, setPlc5] = useState("")
+  const [clr1, setClr1] = useState("white")
+  const [clr2, setClr2] = useState("white")
+  const [clr3, setClr3] = useState("white")
+  const [clr4, setClr4] = useState("white")
+  const [clr5, setClr5] = useState("white")
+  const [show, setShow] = useState(true)
+  const [greens, setGreens] = useState(0)
 
   const checkLetters = () => {
-    const dct = JSON.parse(JSON.stringify(props.dict))
 
-    if (pl1 === props.lt1) {
-      setCl1('lightgreen')
-      greens.current++
-      dct[pl1]--
-    }
-    if (pl2 === props.lt2) {
-      setCl2('lightgreen')
-      greens.current++
-      dct[pl2]--
-    }
-    if (pl3 === props.lt3) {
-      setCl3('lightgreen')
-      greens.current++
-      dct[pl3]--
-    }
-    if (pl4 === props.lt4) {
-      setCl4('lightgreen')
-      greens.current++
-      dct[pl4]--
-    }
-    if (pl5 === props.lt5) {
-      setCl5('lightgreen')
-      greens.current++
-      dct[pl5]--
-    }
+    const word = plc1 + plc2 + plc3 + plc4 + plc5
+    const checkWord = (str) => /^[a-zA-Z]+$/.test(str)
+    console.log(props.vocab)
 
-    if (pl1 in dct) {
-      if (dct[pl1] !== 0) {
-        if (cl1 !== 'green') {
-          setCl1('yellow')
-          dct[pl1]--
-        }
-      }
-    }
-    if (pl2 in dct) {
-      if (dct[pl2] !== 0) {
-        if (cl2 !== 'green') {
-          setCl2('yellow')
-          dct[pl2]--
-        }
-      }
-    }
-
-    if (pl3 in dct) {
-      if (dct[pl3] !== 0) {
-        if (cl3 !== 'green') {
-          setCl3('yellow')
-          dct[pl3]--
-        }
-      }
-    }
-
-    if (pl4 in dct) {
-      if (dct[pl4] !== 0) {
-        if (cl4 !== 'green') {
-          setCl4('yellow')
-          dct[pl4]--
-        }
-      }
-    }
-
-    if (pl5 in dct) {
-      if (dct[pl5] !== 0) {
-        if (cl5 !== 'green') {
-          setCl5('yellow')
-          dct[pl5]--
-        }
-      }
-    }
-
-    if (pl5 === props.lt5) {
-      setCl5('lightgreen')
-    }
-    if (pl4 === props.lt4) {
-      setCl4('lightgreen')
-    }
-    if (pl3 === props.lt3) {
-      setCl3('lightgreen')
-    }
-    if (pl2 === props.lt2) {
-      setCl2('lightgreen')
-    }
-    if (pl1 === props.lt1) {
-      setCl5('lightgreen')
-    }
-
-      show.current = false
-      checkResult()
-    }
-
-    const checkResult = () => {
-      if (greens.current === 5) {
-        props.checkWin(true)
+    if (!checkWord(word)) {
+      window.alert('Enter letters only')
+      console.log(word)
+    } else if (!(props.vocab.includes(word))) {
+      window.alert('Enter real words only')
       } else {
-        props.checkWin(false)
-      }
-    }
+          const dct = JSON.parse(JSON.stringify(props.dct))
 
+          if (plc1 === props.ltr1) {
+            setClr1('lightgreen')
+            setGreens(greens+1)
+            dct[plc1]--
+          }
+          if (plc2 === props.ltr2) {
+            setClr2('lightgreen')
+            setGreens(greens+1)
+            dct[plc2]--
+          }
+          if (plc3 === props.ltr3) {
+            setClr3('lightgreen')
+            setGreens(greens+1)
+            dct[plc3]--
+          }
+          if (plc4 === props.ltr4) {
+            setClr4('lightgreen')
+            setGreens(greens+1)
+            dct[plc4]--
+          }
+          if (plc5 === props.ltr5) {
+            setClr5('lightgreen')
+            setGreens(greens+1)
+            dct[plc5]--
+          }
+
+          if (plc1 in dct) {
+            if (dct[plc1] !== 0) {
+              if (clr1 !== 'lightgreen') {
+                setClr1('yellow')
+                dct[plc1]--
+              }
+            }
+          }
+          if (plc2 in dct) {
+            if (dct[plc2] !== 0) {
+              if (clr2 !== 'lightgreen') {
+                setClr2('yellow')
+                dct[plc2]--
+              }
+            }
+          }
+
+          if (plc3 in dct) {
+            if (dct[plc3] !== 0) {
+              if (clr3 !== 'lightgreen') {
+                setClr3('yellow')
+                dct[plc3]--
+              }
+            }
+          }
+
+          if (plc4 in dct) {
+            if (dct[plc4] !== 0) {
+              if (clr4 !== 'lightgreen') {
+                setClr4('yellow')
+                dct[plc4]--
+              }
+            }
+          }
+
+          if (plc5 in dct) {
+            if (dct[plc5] !== 0) {
+              if (clr5 !== 'lightgreen') {
+                setClr5('yellow')
+                dct[plc5]--
+              }
+            }
+          }
+          setShow(false)
+          if (greens === 5) {
+            props.checkWin(true)
+          } else {
+            props.checkWin(false)
+          }
+    }
+  }
 
   const handleFocus = (e) => {
     const {maxLength, value, name} = e.target;
@@ -137,46 +127,46 @@ export default function Line (props) {
 
   return (
     <div style={{ paddingTop: 20 }}>
-      <input name={`field-${props.pr}1`} maxLength="1" value={pl1} type="text"
-             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: cl1}}
+      <input name={`field-${props.pr}1`} maxLength="1" value={plc1} type="text"
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr1}}
              onChange={(e) => {
-               setPl1(e.target.value);
+               setPlc1(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}2`} maxLength="1" value={pl2} type="text"
-             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: cl2}}
+      <input name={`field-${props.pr}2`} maxLength="1" value={plc2} type="text"
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr2}}
              onChange={(e) => {
-               setPl2(e.target.value);
+               setPlc2(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}3`} maxLength="1" value={pl3} type="text"
-             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: cl3}}
+      <input name={`field-${props.pr}3`} maxLength="1" value={plc3} type="text"
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr3}}
              onChange={(e) => {
-               setPl3(e.target.value);
+               setPlc3(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}4`} maxLength="1" value={pl4} type="text"
-             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: cl4}}
+      <input name={`field-${props.pr}4`} maxLength="1" value={plc4} type="text"
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr4}}
              onChange={(e) => {
-               setPl4(e.target.value);
+               setPlc4(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}5`} maxLength="1" value={pl5} type="text"
-             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: cl5}}
+      <input name={`field-${props.pr}5`} maxLength="1" value={plc5} type="text"
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr5}}
              onChange={(e) => {
-               setPl5(e.target.value);
+               setPlc5(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
 
-      { show.current &&
+      { show &&
       <Button variant="outline-success"
               style={{marginLeft: 10, marginBottom: '1%', width: '16%', fontSize: 20, textAlign: "center"}}
-              onClick={() =>  {checkLetters()}}>
+              onClick={checkLetters}>
         GO
       </Button> }
 
