@@ -160,21 +160,21 @@ export default function Line (props) {
 
       <Button variant="outline-success" disabled={props.tries !== props.pr}
               style={{marginLeft: 5, marginBottom: '1%', width: '10%',
-                fontSize: 18, textAlign: "center", paddingLeft: 4}}
+                fontSize: 18, textAlign: "center", paddingLeft: 5}}
               onClick={checkLetters}>
         GO
       </Button>
 
       <Button variant="outline-warning" disabled={props.tries !== props.pr}
               style={{marginLeft: 5, marginBottom: '1%', width: '10%',
-                fontSize: 12, textAlign: "center", paddingLeft: 4}}
+                fontSize: 12, textAlign: "center", paddingLeft: 5}}
               onClick={() => {setPlc1(""); setPlc2(""); setPlc3(""); setPlc4(""); setPlc5("")}}>
         Clear
       </Button>
 
       <Button variant="outline-danger" disabled={props.tries !== props.pr}
               style={{marginLeft: 5, marginBottom: '1%', width: '10%',
-                fontSize: 12, textAlign: "center", paddingLeft: 4}}
+                fontSize: 12, textAlign: "center", paddingLeft: 5}}
               onClick={() => props.checkWin(false)}>
         Pass
       </Button>
