@@ -35,7 +35,7 @@ export default function Header() {
   return(
     <>
       <Navbar>
-        <Navbar.Brand>Wordwhile (Alpha)</Navbar.Brand>
+        <Navbar.Brand>Wordwhile (Beta)</Navbar.Brand>
         <Navbar.Toggle />
         <Nav.Link href="/">Start New Game</Nav.Link>
         {/*<Nav.Link href="/jokes">Jokes</Nav.Link>*/}
