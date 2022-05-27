@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Route, Routes} from "react-router-dom";
@@ -8,6 +8,7 @@ import {Container} from "react-bootstrap";
 import Result from "./Result";
 import axios from 'axios'
 import {VOCAB_URL} from "./etc";
+import Note from "./Note";
 
 
 export default function App () {
@@ -33,6 +34,7 @@ export default function App () {
         <Route path="/" element={<Rules/>} />
         <Route path="/game" element={<Game vocab={vocab}/>} />
         <Route path="/result" element={<Result/>} />
+        <Route path="/contact" element={<Note/>} />
       </Routes>
     </Container>
   )

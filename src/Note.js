@@ -5,7 +5,7 @@ import axios from "axios";
 import {NOTES_URL} from "./etc";
 import Header from "./Header";
 
-export default function Notes() {
+export default function Note() {
 
     const [info, setInfo] = useState('')
     const [text, setText] = useState('')
