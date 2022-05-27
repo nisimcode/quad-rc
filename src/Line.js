@@ -13,46 +13,37 @@ export default function Line (props) {
   const [clr3, setClr3] = useState("white")
   const [clr4, setClr4] = useState("white")
   const [clr5, setClr5] = useState("white")
-  const [show, setShow] = useState(true)
-  const [greens, setGreens] = useState(0)
 
   const checkLetters = () => {
 
-    const word = plc1 + plc2 + plc3 + plc4 + plc5
+    const guess = plc1 + plc2 + plc3 + plc4 + plc5
     const checkWord = (str) => /^[a-zA-Z]+$/.test(str)
-    console.log(props.vocab)
 
-    if (!checkWord(word)) {
+    if (!checkWord(guess)) {
       window.alert('Enter letters only')
-      console.log(word)
-    } else if (!(props.vocab.includes(word))) {
+    } else if (!(props.vocab.includes(guess))) {
       window.alert('Enter real words only')
       } else {
           const dct = JSON.parse(JSON.stringify(props.dct))
 
           if (plc1 === props.ltr1) {
             setClr1('lightgreen')
-            setGreens(greens+1)
             dct[plc1]--
           }
           if (plc2 === props.ltr2) {
             setClr2('lightgreen')
-            setGreens(greens+1)
             dct[plc2]--
           }
           if (plc3 === props.ltr3) {
             setClr3('lightgreen')
-            setGreens(greens+1)
             dct[plc3]--
           }
           if (plc4 === props.ltr4) {
             setClr4('lightgreen')
-            setGreens(greens+1)
             dct[plc4]--
           }
           if (plc5 === props.ltr5) {
             setClr5('lightgreen')
-            setGreens(greens+1)
             dct[plc5]--
           }
 
@@ -99,8 +90,7 @@ export default function Line (props) {
               }
             }
           }
-          setShow(false)
-          if (greens === 5) {
+          if (guess === props.word) {
             props.checkWin(true)
           } else {
             props.checkWin(false)
@@ -127,49 +117,64 @@ export default function Line (props) {
 
   return (
     <div style={{ paddingTop: 20 }}>
-      <input name={`field-${props.pr}1`} maxLength="1" value={plc1} type="text"
+      <input name={`field-${props.pr}1`} maxLength="1" value={plc1} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr1}}
+             onDoubleClick={() => setPlc1("")}
              onChange={(e) => {
                setPlc1(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}2`} maxLength="1" value={plc2} type="text"
+      <input name={`field-${props.pr}2`} maxLength="1" value={plc2} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr2}}
+             onDoubleClick={() => setPlc2("")}
              onChange={(e) => {
                setPlc2(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}3`} maxLength="1" value={plc3} type="text"
+      <input name={`field-${props.pr}3`} maxLength="1" value={plc3} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr3}}
+             onDoubleClick={() => setPlc3("")}
              onChange={(e) => {
                setPlc3(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}4`} maxLength="1" value={plc4} type="text"
+      <input name={`field-${props.pr}4`} maxLength="1" value={plc4} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr4}}
+             onDoubleClick={() => setPlc4("")}
              onChange={(e) => {
                setPlc4(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
-      <input name={`field-${props.pr}5`} maxLength="1" value={plc5} type="text"
+      <input name={`field-${props.pr}5`} maxLength="1" value={plc5} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr5}}
+             onDoubleClick={() => setPlc5("")}
              onChange={(e) => {
                setPlc5(e.target.value.toLowerCase());
                handleFocus(e)
              }}
       />
 
-      { show &&
-      <Button variant="outline-success"
-              style={{marginLeft: 10, marginBottom: '1%', width: '16%', fontSize: 20, textAlign: "center"}}
+      <Button variant="outline-success" disabled={props.tries !== props.pr}
+              style={{marginLeft: 10, marginBottom: '1%', width: '8%', fontSize: 20, textAlign: "center"}}
               onClick={checkLetters}>
         GO
-      </Button> }
+      </Button>
 
+      <Button variant="outline-warning" disabled={props.tries !== props.pr}
+              style={{marginLeft: 10, marginBottom: '1%', width: '8%', fontSize: 20, textAlign: "center"}}
+              onClick={() => {setPlc1(""); setPlc2(""); setPlc3(""); setPlc4(""); setPlc5("")}}>
+        Clear
+      </Button>
+
+      <Button variant="outline-danger" disabled={props.tries !== props.pr}
+              style={{marginLeft: 10, marginBottom: '1%', width: '8%', fontSize: 20, textAlign: "center"}}
+              onClick={() => props.checkWin(false)}>
+        Pass
+      </Button>
     </div>
   )
 }

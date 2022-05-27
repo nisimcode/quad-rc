@@ -18,7 +18,6 @@ export default function App () {
     axios
       .get(VOCAB_URL)
       .then(res => {
-        console.log(res.data)
         setVocab(res.data)
       })
       .catch(err => {

@@ -15,7 +15,6 @@ export default function Header() {
     //       axios.get(CURRENT_USER_URL, getToken())
     //       .then(response => {
     //         if (response.statusText === 'OK') {
-    //             // console.log("got response for user " + response.data.username)
     //             localStorage.setItem('username', response.data.username)
     //             localStorage.setItem('userId', response.data.userId)
     //             setLoggedIn(true)
