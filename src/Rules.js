@@ -20,7 +20,7 @@ export default function Rules () {
         <h3>7. On your 6th and last guess the word's definition will be shown to help you.</h3>
 
         <Button variant="outline-primary"
-                style={{marginBottom: '1%', marginTop: '5%', width: '20%', fontSize: 20, textAlign: "center"}}
+                style={{marginBottom: '1%', marginTop: '5%', width: '30%', fontSize: 20, textAlign: "center"}}
                 onClick={() => window.location.href = 'game'}>
           START
         </Button>

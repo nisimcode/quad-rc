@@ -87,7 +87,7 @@ export default function Game(props) {
           <>
             <Line checkWin={checkWin} pr={6} dct={dct.current} vocab={props.vocab} tries={tries} word={word.current}
                 ltr1={ltr1.current} ltr2={ltr2.current} ltr3={ltr3.current} ltr4={ltr4.current} ltr5={ltr5.current} />
-            <h4>{def.current}</h4>
+            <h5>{def.current}</h5>
           </>}
 
 
