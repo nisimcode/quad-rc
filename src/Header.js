@@ -35,7 +35,7 @@ export default function Header() {
   return(
     <>
       <Navbar>
-        <Navbar.Brand>Wordwhile (Beta)</Navbar.Brand>
+        <Navbar.Brand>Wordwhile for Chrome Mobile (Beta)</Navbar.Brand>
         <Navbar.Toggle />
         <Nav.Link href="/">New Game</Nav.Link>
         <Nav.Link href="/contact">Contact Us</Nav.Link>
