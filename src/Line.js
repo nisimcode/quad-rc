@@ -55,7 +55,8 @@ export default function Line (props) {
                 dct[plc1]--
               }
             }
-          }
+          } else setClr1('indianred')
+
           if (plc2 in dct) {
             if (dct[plc2] !== 0) {
               if (clr2 !== 'lightgreen') {
@@ -63,7 +64,7 @@ export default function Line (props) {
                 dct[plc2]--
               }
             }
-          }
+          } else setClr2('indianred')
 
           if (plc3 in dct) {
             if (dct[plc3] !== 0) {
@@ -72,7 +73,7 @@ export default function Line (props) {
                 dct[plc3]--
               }
             }
-          }
+          } else setClr3('indianred')
 
           if (plc4 in dct) {
             if (dct[plc4] !== 0) {
@@ -81,7 +82,7 @@ export default function Line (props) {
                 dct[plc4]--
               }
             }
-          }
+          } else setClr4('indianred')
 
           if (plc5 in dct) {
             if (dct[plc5] !== 0) {
@@ -90,12 +91,13 @@ export default function Line (props) {
                 dct[plc5]--
               }
             }
-          }
-          if (guess === props.word) {
-            props.checkWin(true)
-          } else {
-            props.checkWin(false)
-          }
+          } else setClr5('indianred')
+
+      if (guess === props.word) {
+        props.checkWin(true)
+      } else {
+        props.checkWin(false)
+      }
     }
   }
 

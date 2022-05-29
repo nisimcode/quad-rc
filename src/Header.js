@@ -36,9 +36,10 @@ export default function Header() {
     <>
       <Navbar>
         <Navbar.Brand>Wordwhile
-          <p style={{display: "inline", fontSize: '50%'}}>
-            for Chrome Mobile (Beta)
-          </p>
+          &thinsp;
+          <pre style={{display: "inline", fontSize: '50%'}}>
+              for Chrome Mobile (Beta)
+          </pre>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Nav.Link href="/">New Game</Nav.Link>
