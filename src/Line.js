@@ -21,9 +21,9 @@ export default function Line (props) {
     const checkWord = (str) => /^[a-zA-Z]+$/.test(str)
 
     if (!checkWord(guess)) {
-      window.alert('Enter letters only')
+      window.alert('Enter letters only!')
     } else if (!(props.vocab.includes(guess))) {
-      window.alert('Enter real words only')
+      window.alert(`'${guess}' isn't in our dictionary!`)
       } else {
           const dct = JSON.parse(JSON.stringify(props.dct))
 
