@@ -38,7 +38,7 @@ export default function Header() {
         <Navbar.Brand>Wordwhile
           &thinsp;
           <pre style={{display: "inline", fontSize: '50%'}}>
-              for Chrome Mobile (Beta)
+              for Chrome (Beta)
           </pre>
         </Navbar.Brand>
         <Navbar.Toggle />
