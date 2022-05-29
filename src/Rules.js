@@ -12,11 +12,11 @@ export default function Rules () {
 
         <h1>Rules:</h1>
         <h4>1. You have to find a randomly chosen 5 letter English word.</h4>
-        <h4>2. Click 'GO' to check guess or 'Pass' to forfeit guess.</h4>
-        <h4>2. Click 'Clear' to erase all letters or double-click a letter to erase it.</h4>
+        <h4>2. Click 'GO' to check guess or 'Pass' to pass current guess.</h4>
+        <h4>2. Click 'Clear' to erase all letters or click a letter to erase it.</h4>
         <h4>4. Letters that are in their correct places will get a green background.</h4>
         <h4>5. Letters that are in their incorrect places will get a yellow background.</h4>
-        <h4>6. Letters that are not in the word will remain with a white background.</h4>
+        <h4>6. Letters that are not in the word will get a red background.</h4>
         <h4>7. On your 6th and last guess the word's definition will be shown to help you.</h4>
 
         <Button variant="outline-primary"

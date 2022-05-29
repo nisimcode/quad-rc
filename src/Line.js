@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import Button from "react-bootstrap/Button";
+import {MY_GREEN, MY_RED, MY_YELLOW} from "./etc";
 
 export default function Line (props) {
 
@@ -15,6 +16,7 @@ export default function Line (props) {
   const [clr5, setClr5] = useState("white")
 
 
+
   const checkLetters = () => {
 
     const guess = plc1 + plc2 + plc3 + plc4 + plc5
@@ -28,70 +30,70 @@ export default function Line (props) {
           const dct = JSON.parse(JSON.stringify(props.dct))
 
           if (plc1 === props.ltr1) {
-            setClr1('lightgreen')
+            setClr1(MY_GREEN)
             dct[plc1]--
           }
           if (plc2 === props.ltr2) {
-            setClr2('lightgreen')
+            setClr2(MY_GREEN)
             dct[plc2]--
           }
           if (plc3 === props.ltr3) {
-            setClr3('lightgreen')
+            setClr3(MY_GREEN)
             dct[plc3]--
           }
           if (plc4 === props.ltr4) {
-            setClr4('lightgreen')
+            setClr4(MY_GREEN)
             dct[plc4]--
           }
           if (plc5 === props.ltr5) {
-            setClr5('lightgreen')
+            setClr5(MY_GREEN)
             dct[plc5]--
           }
 
           if (plc1 in dct) {
             if (dct[plc1] !== 0) {
-              if (clr1 !== 'lightgreen') {
-                setClr1('yellow')
+              if (clr1 !== MY_GREEN) {
+                setClr1(MY_YELLOW)
                 dct[plc1]--
               }
             }
-          } else setClr1('indianred')
+          } else setClr1(MY_RED)
 
           if (plc2 in dct) {
             if (dct[plc2] !== 0) {
-              if (clr2 !== 'lightgreen') {
-                setClr2('yellow')
+              if (clr2 !== MY_GREEN) {
+                setClr2(MY_YELLOW)
                 dct[plc2]--
               }
             }
-          } else setClr2('indianred')
+          } else setClr2(MY_RED)
 
           if (plc3 in dct) {
             if (dct[plc3] !== 0) {
-              if (clr3 !== 'lightgreen') {
-                setClr3('yellow')
+              if (clr3 !== MY_GREEN) {
+                setClr3(MY_YELLOW)
                 dct[plc3]--
               }
             }
-          } else setClr3('indianred')
+          } else setClr3(MY_RED)
 
           if (plc4 in dct) {
             if (dct[plc4] !== 0) {
-              if (clr4 !== 'lightgreen') {
-                setClr4('yellow')
+              if (clr4 !== MY_GREEN) {
+                setClr4(MY_YELLOW)
                 dct[plc4]--
               }
             }
-          } else setClr4('indianred')
+          } else setClr4(MY_RED)
 
           if (plc5 in dct) {
             if (dct[plc5] !== 0) {
-              if (clr5 !== 'lightgreen') {
-                setClr5('yellow')
+              if (clr5 !== MY_GREEN) {
+                setClr5(MY_YELLOW)
                 dct[plc5]--
               }
             }
-          } else setClr5('indianred')
+          } else setClr5(MY_RED)
 
       if (guess === props.word) {
         props.checkWin(true)
