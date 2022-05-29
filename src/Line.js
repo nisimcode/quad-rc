@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Button from "react-bootstrap/Button";
 
 export default function Line (props) {
@@ -13,6 +13,7 @@ export default function Line (props) {
   const [clr3, setClr3] = useState("white")
   const [clr4, setClr4] = useState("white")
   const [clr5, setClr5] = useState("white")
+
 
   const checkLetters = () => {
 
@@ -119,7 +120,7 @@ export default function Line (props) {
     <div style={{ paddingTop: 20 }}>
       <input name={`field-${props.pr}1`} maxLength="1" value={plc1} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr1}}
-             onDoubleClick={() => setPlc1("")}
+             onClick={() => setPlc1("")} autoFocus
              onChange={(e) => {
                setPlc1(e.target.value.toLowerCase());
                handleFocus(e)
@@ -127,7 +128,7 @@ export default function Line (props) {
       />
       <input name={`field-${props.pr}2`} maxLength="1" value={plc2} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr2}}
-             onDoubleClick={() => setPlc2("")}
+              onClick={() => setPlc2("")}
              onChange={(e) => {
                setPlc2(e.target.value.toLowerCase());
                handleFocus(e)
@@ -135,7 +136,7 @@ export default function Line (props) {
       />
       <input name={`field-${props.pr}3`} maxLength="1" value={plc3} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr3}}
-             onDoubleClick={() => setPlc3("")}
+              onClick={() => setPlc3("")}
              onChange={(e) => {
                setPlc3(e.target.value.toLowerCase());
                handleFocus(e)
@@ -143,7 +144,7 @@ export default function Line (props) {
       />
       <input name={`field-${props.pr}4`} maxLength="1" value={plc4} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr4}}
-             onDoubleClick={() => setPlc4("")}
+             onClick={() => setPlc4("")}
              onChange={(e) => {
                setPlc4(e.target.value.toLowerCase());
                handleFocus(e)
@@ -151,7 +152,7 @@ export default function Line (props) {
       />
       <input name={`field-${props.pr}5`} maxLength="1" value={plc5} type="text" disabled={props.tries !== props.pr}
              style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr5}}
-             onDoubleClick={() => setPlc5("")}
+              onClick={() => setPlc5("")}
              onChange={(e) => {
                setPlc5(e.target.value.toLowerCase());
                handleFocus(e)
@@ -168,7 +169,8 @@ export default function Line (props) {
       <Button variant="outline-warning" disabled={props.tries !== props.pr}
               style={{marginLeft: 5, marginBottom: '1%', width: '10%',
                 fontSize: 12, textAlign: "center", paddingLeft: 5}}
-              onClick={() => {setPlc1(""); setPlc2(""); setPlc3(""); setPlc4(""); setPlc5("")}}>
+              onClick={() => {setPlc1(""); setPlc2(""); setPlc3(""); setPlc4(""); setPlc5("");
+              document.querySelector(`input[name=field-${props.pr}1]`).focus()}}>
         Clear
       </Button>
 
