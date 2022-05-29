@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
 import axios from "axios";
-import {NOTES_URL} from "./etc";
+import {NOTES_URL} from "./misc";
 import Header from "./Header";
 
-export default function Note() {
+const Note = () =>  {
 
     const [info, setInfo] = useState('')
     const [text, setText] = useState('')
@@ -50,8 +50,8 @@ export default function Note() {
             <Form style={{width: '30%', margin: "auto"}}>
                 {/*{ !username &&*/}
                 <Form.Group className="mb-3" controlId="formInfo">
-                    <Form.Label>Contact Info</Form.Label>
-                    <Form.Control as="textarea" rows={3} placeholder="Enter your contact info"
+                    <Form.Label>Email (Optional)</Form.Label>
+                    <Form.Control as="textarea" rows={2} placeholder="Enter your contact info"
                     value={info}
                     onChange={ (event) => setInfo(event.target.value) }/>
                 </Form.Group>
@@ -68,7 +68,7 @@ export default function Note() {
 
                 <Form.Group className="mb-3" controlId="formText">
                     <Form.Label>Message</Form.Label>
-                    <Form.Control as="textarea" rows={3} placeholder="Enter your message here"
+                    <Form.Control as="textarea" rows={5} placeholder="Enter your message here"
                     value={text}
                     onChange={ (event) => setText(event.target.value) }/>
                 </Form.Group>
@@ -79,5 +79,6 @@ export default function Note() {
             </Form>
         </>
     )
-
 }
+
+export default Note

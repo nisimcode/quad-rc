@@ -1,8 +1,8 @@
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import Button from "react-bootstrap/Button";
-import {MY_GREEN, MY_RED, MY_YELLOW} from "./etc";
+import {MY_GREEN, MY_RED, MY_YELLOW} from "./misc";
 
-export default function Line (props) {
+const Line = props => {
 
   const [plc1, setPlc1] = useState("")
   const [plc2, setPlc2] = useState("")
@@ -14,8 +14,6 @@ export default function Line (props) {
   const [clr3, setClr3] = useState("white")
   const [clr4, setClr4] = useState("white")
   const [clr5, setClr5] = useState("white")
-
-
 
   const checkLetters = () => {
 
@@ -187,3 +185,5 @@ export default function Line (props) {
     </div>
   )
 }
+
+export default Line

@@ -7,14 +7,12 @@ import Rules from "./Rules"
 import {Container} from "react-bootstrap";
 import Result from "./Result";
 import axios from 'axios'
-import {VOCAB_URL} from "./etc";
+import {VOCAB_URL} from "./misc";
 import Note from "./Note";
 
-
-export default function App () {
+const App = () => {
 
   const [vocab, setVocab] = useState([])
-
   const getVocabulary =  () => {
     axios
       .get(VOCAB_URL)
@@ -39,6 +37,8 @@ export default function App () {
     </Container>
   )
 }
+
+export default App
 
 
 

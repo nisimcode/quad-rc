@@ -1,12 +1,11 @@
 import Line from "./Line";
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
-import {BACK_URL} from "./etc";
+import {BACK_URL} from "./misc";
 import Result from "./Result";
 import Header from "./Header";
 
-
-export default function Game(props) {
+const Game = props => {
 
   const ltr1= useRef("")
   const ltr2 = useRef("")
@@ -18,18 +17,6 @@ export default function Game(props) {
   const def = useRef("")
   const [win, setWin] = useState(false)
   const [tries, setTries] = useState(1)
-
-  // const [ltr1, setLtr1] = useState("")
-  // const [ltr2, setLtr2] = useState("")
-  // const [ltr3, setLtr3] = useState("")
-  // const [ltr4, setLtr4] = useState("")
-  // const [ltr5, setLtr5] = useState("")
-  // const word = useRef("")
-  // const [tries, setTries] = useState(1)
-  // const [dct, setDct] = useState({})
-  // const def = useRef("")
-  // const [win, setWin] = useState(false)
-
 
   const getWord = () => {
     axios
@@ -59,7 +46,7 @@ export default function Game(props) {
 
   return (
     <>
-      <Header/>
+      <Header />
 
       <div style={{textAlign: 'center'}}>
 
@@ -90,13 +77,12 @@ export default function Game(props) {
             <h5>{def.current}</h5>
           </>}
 
-
-        <Result win={win} tries={tries} word={word.current}/>
+        <Result win={win} tries={tries} word={word.current} />
 
       </div>
     </>
   )
 }
 
-
+export default Game
 
