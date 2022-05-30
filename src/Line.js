@@ -28,6 +28,12 @@ const Line = props => {
       } else {
           const dct = JSON.parse(JSON.stringify(props.dct))
 
+          setClr1(MY_RED)
+          setClr2(MY_RED)
+          setClr3(MY_RED)
+          setClr4(MY_RED)
+          setClr5(MY_RED)
+
           if (plc1 === props.ltr1) {
             setClr1(MY_GREEN)
             dct[plc1]--
@@ -164,23 +170,23 @@ const Line = props => {
       />
 
       <Button variant="outline-success" disabled={props.tries !== props.pr}
-              style={{marginLeft: 5, marginBottom: '1%', width: '10%',
-                fontSize: 18, textAlign: "center", paddingLeft: 5}}
+              style={{marginLeft: 5, marginBottom: '1%', width: '7.5%',
+                fontSize: 18, textAlign: "left", alignContent: "stretch", paddingLeft: '2.75%'}}
               onClick={checkLetters}>
         GO
       </Button>
 
       <Button variant="outline-warning" disabled={props.tries !== props.pr}
-              style={{marginLeft: 5, marginBottom: '1%', width: '10%',
-                fontSize: 12, textAlign: "center", paddingLeft: 5}}
+              style={{marginLeft: 5, marginBottom: '1%', width: '7.5%',
+                fontSize: 18, textAlign: "left", paddingLeft: '2%'}}
               onClick={() => {setPlc1(""); setPlc2(""); setPlc3(""); setPlc4(""); setPlc5("");
               document.querySelector(`input[name=field-${props.pr}1]`).focus()}}>
         Clear
       </Button>
 
       <Button variant="outline-danger" disabled={props.tries !== props.pr}
-              style={{marginLeft: 5, marginBottom: '1%', width: '10%',
-                fontSize: 12, textAlign: "center", paddingLeft: 5}}
+              style={{marginLeft: 5, marginBottom: '1%', width: '7.5%',
+                fontSize: 18, textAlign: "left", paddingLeft: '2.25%'}}
               onClick={() => props.checkWin(false)}>
         Pass
       </Button>

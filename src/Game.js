@@ -4,6 +4,7 @@ import axios from "axios";
 import {BACK_URL} from "./misc";
 import Result from "./Result";
 import Header from "./Header";
+import Button from "react-bootstrap/Button";
 
 const Game = props => {
 
@@ -16,6 +17,7 @@ const Game = props => {
   const dct = useRef({})
   const def = useRef("")
   const [win, setWin] = useState(false)
+  const [toggleDef, setToggleDef] = useState(false)
   const [tries, setTries] = useState(1)
 
   const getWord = () => {
@@ -74,7 +76,15 @@ const Game = props => {
           <>
             <Line checkWin={checkWin} pr={6} dct={dct.current} vocab={props.vocab} tries={tries} word={word.current}
                 ltr1={ltr1.current} ltr2={ltr2.current} ltr3={ltr3.current} ltr4={ltr4.current} ltr5={ltr5.current} />
-            <h5>{def.current}</h5>
+            { !toggleDef &&
+            <>
+              <Button variant='outline-dark' onClick={() => setToggleDef(true)}>Show definition</Button>
+              <br/>
+            </> }
+
+            { toggleDef &&
+            <h5>{def.current}</h5> }
+
           </>}
 
         <Result win={win} tries={tries} word={word.current} />

@@ -6,8 +6,8 @@ const Header = () => (
     <Navbar>
       <Navbar.Brand>Wordwhile
         &thinsp;
-        <pre style={{display: "inline", fontSize: '50%'}}>
-            for Chrome (Beta)
+        <pre style={{display: "inline", fontSize: '60%'}}>
+            for Chrome (RC)
         </pre>
       </Navbar.Brand>
       <Navbar.Toggle />
