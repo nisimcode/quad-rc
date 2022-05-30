@@ -18,6 +18,7 @@ const Line = props => {
   const checkLetters = () => {
 
     const guess = plc1 + plc2 + plc3 + plc4 + plc5
+    const guessArray = [plc1, plc2, plc3, plc4, plc5]
     const checkWord = (str) => /^[a-zA-Z]+$/.test(str)
 
     if (!checkWord(guess)) {
@@ -92,6 +93,12 @@ const Line = props => {
               }
             }
           } else setClr5(MY_RED)
+
+      if (clr1 !== MY_GREEN && clr1 !== MY_YELLOW) setClr1(MY_RED)
+      if (clr2 !== MY_GREEN && clr2 !== MY_YELLOW) setClr2(MY_RED)
+      if (clr3 !== MY_GREEN && clr3 !== MY_YELLOW) setClr3(MY_RED)
+      if (clr4 !== MY_GREEN && clr4 !== MY_YELLOW) setClr4(MY_RED)
+      if (clr5 !== MY_GREEN && clr5 !== MY_YELLOW) setClr5(MY_RED)
 
       if (guess === props.word) {
         props.checkWin(true)
