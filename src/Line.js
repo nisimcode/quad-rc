@@ -94,11 +94,6 @@ const Line = props => {
             }
           } else setClr5(MY_RED)
 
-      if (clr1 !== MY_GREEN || MY_YELLOW) setClr1(MY_RED)
-      if (clr2 !== MY_GREEN || MY_YELLOW) setClr2(MY_RED)
-      if (clr3 !== MY_GREEN || MY_YELLOW) setClr3(MY_RED)
-      if (clr4 !== MY_GREEN || MY_YELLOW) setClr4(MY_RED)
-      if (clr5 !== MY_GREEN || MY_YELLOW) setClr5(MY_RED)
 
       if (guess === props.word) {
         props.checkWin(true)
