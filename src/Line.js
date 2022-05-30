@@ -18,7 +18,6 @@ const Line = props => {
   const checkLetters = () => {
 
     const guess = plc1 + plc2 + plc3 + plc4 + plc5
-    const guessArray = [plc1, plc2, plc3, plc4, plc5]
     const checkWord = (str) => /^[a-zA-Z]+$/.test(str)
 
     if (!checkWord(guess)) {
@@ -62,7 +61,7 @@ const Line = props => {
                 dct[plc1]--
               }
             }
-          } else setClr1(MY_RED)
+          }
 
           if (plc2 in dct) {
             if (dct[plc2] !== 0) {
