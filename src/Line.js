@@ -128,7 +128,7 @@ const Line = props => {
   return (
     <div style={{ paddingTop: 20 }}>
       <input name={`field-${props.pr}1`} maxLength="1" value={plc1} type="text" disabled={props.tries !== props.pr}
-             style={{width: '12%', fontSize: 25, textAlign: "center", margin: 2, backgroundColor: clr1}}
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr1}}
              onClick={() => setPlc1("")} autoFocus
              onChange={(e) => {
                setPlc1(e.target.value.toLowerCase());
@@ -136,7 +136,7 @@ const Line = props => {
              }}
       />
       <input name={`field-${props.pr}2`} maxLength="1" value={plc2} type="text" disabled={props.tries !== props.pr}
-             style={{width: '12%', fontSize: 25, textAlign: "center", margin: 2, backgroundColor: clr2}}
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr2}}
               onClick={() => setPlc2("")}
              onChange={(e) => {
                setPlc2(e.target.value.toLowerCase());
@@ -144,7 +144,7 @@ const Line = props => {
              }}
       />
       <input name={`field-${props.pr}3`} maxLength="1" value={plc3} type="text" disabled={props.tries !== props.pr}
-             style={{width: '12%', fontSize: 25, textAlign: "center", margin: 2, backgroundColor: clr3}}
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr3}}
               onClick={() => setPlc3("")}
              onChange={(e) => {
                setPlc3(e.target.value.toLowerCase());
@@ -152,7 +152,7 @@ const Line = props => {
              }}
       />
       <input name={`field-${props.pr}4`} maxLength="1" value={plc4} type="text" disabled={props.tries !== props.pr}
-             style={{width: '12%', fontSize: 25, textAlign: "center", margin: 2, backgroundColor: clr4}}
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr4}}
              onClick={() => setPlc4("")}
              onChange={(e) => {
                setPlc4(e.target.value.toLowerCase());
@@ -160,7 +160,7 @@ const Line = props => {
              }}
       />
       <input name={`field-${props.pr}5`} maxLength="1" value={plc5} type="text" disabled={props.tries !== props.pr}
-             style={{width: '12%', fontSize: 25, textAlign: "center", margin: 2, backgroundColor: clr5}}
+             style={{width: '12%', fontSize: 32, textAlign: "center", margin: 2, backgroundColor: clr5}}
               onClick={() => setPlc5("")}
              onChange={(e) => {
                setPlc5(e.target.value.toLowerCase());
