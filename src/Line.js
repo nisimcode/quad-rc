@@ -176,7 +176,7 @@ const Line = props => {
       </Button>
 
       <Button variant="outline-warning" disabled={props.tries !== props.pr}
-              style={{marginLeft: 5, marginBottom: '1%', width: '12%',
+              style={{marginLeft: 2, marginBottom: '1%', width: '12%',
                 fontSize: 10, textAlign: "center"}}
               onClick={() => {setPlc1(""); setPlc2(""); setPlc3(""); setPlc4(""); setPlc5("");
               document.querySelector(`input[name=field-${props.pr}1]`).focus()}}>
@@ -184,7 +184,7 @@ const Line = props => {
       </Button>
 
       <Button variant="outline-danger" disabled={props.tries !== props.pr}
-              style={{marginLeft: 5, marginBottom: '1%', width: '13%',
+              style={{marginLeft: 2, marginRight: 2,  marginBottom: '1%', width: '12%',
                 fontSize: 10, textAlign: "center"}}
               onClick={() => props.checkWin(false)}>
         Pass
